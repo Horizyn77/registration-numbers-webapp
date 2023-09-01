@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Numbers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration Numbers</h1>
+        <div class="menu">
+            <form action="/add" method="POST">
+                <input type="text" name="regNumInput" id="">
+                <button id="addBtn" type="submit">Add</button>
+            </form>
+            <form action="/filter" method="POST">
+                <div class="filter-section">
+                    <label for="">Filter:</label>
+                    <select name="townSelect" id="towns">
+                        <option value="default">Select a town</option>
+                        <option value="ca">Cape Town (CA)</option>
+                        <option value="cj">Paarl (CJ)</option>
+                        <option value="caw">George (CAW)</option>
+                        <option value="cl">Stellenbosch (CL)</option>
+                        <option value="cy">Bellville (CY)</option>
+                    </select>
+                    <button id="filterBtn" type="submit">Submit</button>
+                </div>
+            </form>
+            <form action="/showAll" method="POST">
+                <button id="showAllBtn">Show All</button>
+            </form>
+            <form action="/deleteAll" method="POST">
+                <button id="clearBtn" type="submit">Clear Data</button>
+            </form>
+            <button id="aboutBtn">About</button>
+        </div>
+        <div class="errorOrInfoDisplay {{#if messages.error}}errorStyle{{else}}{{#if messages.success}}successStyle{{/if}}{{/if}}">
+            {{#if messages.error}}
+            {{{messages.error}}}
+            {{else}}
+            {{#if messages.success}}
+            {{messages.success}}
+            {{/if}}
+            {{/if}}
+        </div>
+        <div class="displayArea">
+
+            {{!-- <div class="areaMsg">
+                <p>Why so empty !?? 🧐</p>
+                <p> Add some registration numbers to get started</p>
+            </div> --}}
+
+            {{#unless regNumsList}}
+            <div>
+                <p>Why so empty !?? 🧐</p>
+                <p> Add some registration numbers to get started</p>
+            </div>
+            {{/unless}}
+            <ul>
+                {{#each regNumsList}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <section class="modal hidden modalFadeIn">
+            <h3>Welcome to the Registration Numbers App!<span>x</span></h3>
+            <div>
+                <p><strong>Let me introduce you to some of the basic features available to use:</strong></p>
+                <p><strong>*</strong> You can add a registration number plate by entering a valid registration number
+                <p><strong>*</strong> The following areas are supported: Cape Town (CA), Paarl (CJ), George (CAW),
+                    Stellenbosch (CL) and Bellvile (CY)</p>
+                <p><strong>*</strong> Valid registration numbers are in the format of: 2 capital alphabet characters,
+                    followed by a space, and 3-5 numbers afterwards</p>
+                <p><strong>*</strong> There are notifications for any user mistakes or errors you may make</p>
+                <p><strong>*</strong> You have the ability to filter results by area using the drop down menu</p>
+                <p><strong>*</strong> After filtering click the Show All button to show all registration numbers</p>
+                <p><strong>*</strong> Registration numbers may be deleted individually by hovering over the individual
+                    number and clicking the close button</p>
+                <p><strong>*</strong> The app supports local storage. The registration numbers are automatically saved
+                    and available upon refresh</p>
+                <p><strong>*</strong> There is a limit imposed of 15 registration numbers that can be added at a time to
+                    accomodate the space available to display them</p>
+            </div>
+        </section>
+        <div class="overlay hidden"></div>
+    </div>
+    <script src="/registration-numbers.js"></script>
+</body>
+
+</html>

@@ -18,7 +18,7 @@ export default function RegistrationNumbersFactory(registrationService) {
 
     async function validationErrorMsgs(regInput) {
 
-        const pattern = /^[A-Z]{2,3} \d{3,5}$/
+        const pattern = /^[A-Za-z]{2,3} ((\d{3,6})||(\d{2,3}[ -]?\d{3,4}))$/
 
         const regexTest = pattern.test(regInput);
 

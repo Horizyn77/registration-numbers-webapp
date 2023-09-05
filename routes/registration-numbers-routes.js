@@ -14,7 +14,7 @@ export default function RegistrationNumbersRoutes(registrationService, registrat
         req.flash("error", validationCheck)
 
         if (!validationCheck) {
-            await registrationService.addRegNum(regNumInput, townCheck);
+            await registrationService.addRegNum(regNumInput.toUpperCase(), townCheck);
 
             const successMsg = "<i class='bi-check-circle-fill'></i>&nbsp;&nbsp;The registration number has been added successfully.";
 

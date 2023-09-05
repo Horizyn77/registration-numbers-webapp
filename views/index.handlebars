@@ -20,7 +20,6 @@
             </form>
             <form action="/filter" method="POST">
                 <div class="filter-section">
-                    <label for="">Filter:</label>
                     <select name="townSelect" id="towns">
                         <option value="default">Select a town</option>
                         <option value="ca">Cape Town (CA)</option>
@@ -38,24 +37,18 @@
             <form action="/deleteAll" method="POST">
                 <button id="clearBtn" type="submit">Clear Data</button>
             </form>
-            <button id="aboutBtn">About</button>
         </div>
-        <div class="errorOrInfoDisplay {{#if messages.error}}errorStyle{{else}}{{#if messages.success}}successStyle{{/if}}{{/if}}">
+        <div
+            class="errorOrInfoDisplay {{#if messages.error}}errorStyle{{else}}{{#if messages.success}}successStyle{{/if}}{{/if}}">
             {{#if messages.error}}
             {{{messages.error}}}
             {{else}}
             {{#if messages.success}}
-            {{messages.success}}
+            {{{messages.success}}}
             {{/if}}
             {{/if}}
         </div>
         <div class="displayArea">
-
-            {{!-- <div class="areaMsg">
-                <p>Why so empty !?? 🧐</p>
-                <p> Add some registration numbers to get started</p>
-            </div> --}}
-
             {{#unless regNumsList}}
             <div>
                 <p>Why so empty !?? 🧐</p>
@@ -64,7 +57,7 @@
             {{/unless}}
             <ul>
                 {{#each regNumsList}}
-                <li>{{this}}</li>
+                <li>{{this}}<span>x</span></li>
                 {{/each}}
             </ul>
         </div>
@@ -81,9 +74,9 @@
                 <p><strong>*</strong> You have the ability to filter results by area using the drop down menu</p>
                 <p><strong>*</strong> After filtering click the Show All button to show all registration numbers</p>
                 <p><strong>*</strong> Registration numbers may be deleted individually by hovering over the individual
-                    number and clicking the close button</p>
-                <p><strong>*</strong> The app supports local storage. The registration numbers are automatically saved
-                    and available upon refresh</p>
+                    registration number and clicking the close button</p>
+                <p><strong>*</strong> Registration numbers are persisted to the database and available upon refreshing
+                    the page</p>
                 <p><strong>*</strong> There is a limit imposed of 15 registration numbers that can be added at a time to
                     accomodate the space available to display them</p>
             </div>

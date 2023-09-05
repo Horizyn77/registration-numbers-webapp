@@ -29,11 +29,26 @@ export default function RegistrationNumbersService(db) {
         
         await db.none(deleteQuery);
     }    
+
+    async function deleteRegNum(regNumber) {
+        const deleteQuery = `DELETE FROM registration_numbers WHERE reg_number = $1;`
+
+        await db.none(deleteQuery, [regNumber])
+    }
     
+    async function checkTown() {
+        const selectQuery = `SELECT id, reg_code FROM towns;`
+
+        return await db.many(selectQuery)
+    
+    }
+
     return {
         addRegNum,
         getRegNums,
         getFilteredRegNums,
-        deleteAllRegNums
+        deleteAllRegNums,
+        deleteRegNum,
+        checkTown
     }
 }

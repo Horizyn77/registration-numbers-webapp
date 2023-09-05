@@ -64,6 +64,7 @@ li {
     padding-right: 14px;
     font-family: 'UKNumberPlate', sans-serif;
     background-color: white;
+    user-select: none;
 
 }
 
@@ -85,6 +86,8 @@ li span {
 input {
     font-size: 24px;
     width: 160px;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 #addBtn {
@@ -99,11 +102,11 @@ input {
 
 #showAllBtn {
     font-size: 24px;
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 #aboutBtn {
-    font-size: 22px;
+    font-size: 24px;
 }
 
 #filterBtn {
@@ -121,7 +124,7 @@ li:hover span {
 .menu {
     background-color: #d7ecfe;
     width: 90%;
-    padding: 20px 20px 20px 15px;
+    padding: 20px 15px 20px 15px;
     border: 1px solid #74beff;
     border-radius: 5px;
     margin: 28px auto 24px;
@@ -275,7 +278,7 @@ h3 span {
 
 #clearBtn {
     font-size: 24px;
-    margin-right: 8px;
+    margin-right: 0;
 }
 
 .displayArea p {
@@ -387,4 +390,8 @@ form {
 
 .showErrorMsg {
     display: block;
+}
+
+#filterBtn {
+    margin-right: 10px;
 }

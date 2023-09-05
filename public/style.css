@@ -39,6 +39,14 @@ body,
     transform: translateY(2px);
 }
 
+#addBtn,
+#clearBtn,
+#showAllBtn,
+#filterBtn,
+#towns {
+    cursor: pointer;
+}
+
 body {
     position: relative;
 }
@@ -81,6 +89,7 @@ li span {
     border-left: 1px solid black;
     color: black;
     visibility: hidden;
+    cursor: pointer;
 }
 
 input {

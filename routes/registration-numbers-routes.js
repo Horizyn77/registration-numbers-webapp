@@ -28,7 +28,7 @@ export default function RegistrationNumbersRoutes(registrationService, registrat
         const selectedTown = req.body.townSelect;
         const townCheck = await registrationFactory.checkTownId(selectedTown);
         const filteredTowns = await registrationService.getFilteredRegNums(townCheck);
-
+        
         if (!filteredTowns.length > 0) {
             req.flash("error", registrationFactory.filterErrorMsgs(selectedTown));
         }
